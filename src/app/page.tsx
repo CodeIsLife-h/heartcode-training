@@ -1,101 +1,78 @@
-import Image from "next/image";
+"use client";
+import { FlipWords } from "@/components/ui/flip-words";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const words: string[] = ["cigarettes", "drugs", "alcohol"];
+  const [isMounted, setIsMounted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  return (
+    <div>
+      <div className="bg-[url('/drugabuse.jpg')] bg-cover bg-fixed">
+        <div className="flex flex-col justify-center h-dvh ">
+
+          <p className="font-bold text-5xl text-center text-white">
+            Do you do
+            {isMounted ? <FlipWords words={words} /> : words[0]}
+            ?
+          </p>
+
+          <div className="text-xl text-center py-2 text-white">Scroll down to find out more.</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+
+      <div className="bg-[url('/landscape.gif')] bg-cover">
+
+ {/* Parallax Section with Additional Text Boxes */}
+ <div className="parallax relative h-screen" style={{ backgroundImage: "url('/drugabusegif5.gif')" }}>
+        <div className="flex flex-col items-center justify-center h-full">
+          {/* Title */}
+          <h2 className="text-black text-4xl font-bold mb-8">Understanding the Dangers of Drug Use</h2>
+
+          {/* Additional Text Boxes in the Parallax Section */}
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* First Row */}
+            <div className="p-4 bg-white bg-opacity-80 rounded-md shadow-lg">
+              <h3 className="font-bold text-lg text-black">Physical Health Risks</h3>
+              <p className="text-base text-black">
+                Drug use can lead to a range of serious health issues, such as organ damage, respiratory problems, and increased risk of infectious diseases.
+                Understanding these dangers is crucial for making informed choices.
+              </p>
+            </div>
+            <div className="p-4 bg-white bg-opacity-80 rounded-md shadow-lg">
+              <h3 className="font-bold text-lg text-black">Mental Health Challenges</h3>
+              <p className="text-base text-black">
+                Substance abuse can trigger or worsen mental health disorders, including depression, anxiety, and paranoia.
+                Awareness of these effects can encourage individuals to seek help and prioritize their mental well-being.
+              </p>
+            </div>
+
+            {/* Second Row */}
+            <div className="p-4 bg-white bg-opacity-80 rounded-md shadow-lg ">
+              <h3 className="font-bold text-lg text-black">Impact on Relationships</h3>
+              <p className="text-base text-black">
+                Drug use can strain relationships with family, friends, and colleagues, leading to isolation and conflict.
+                Recognizing this impact is vital for fostering supportive environments that promote recovery.
+              </p>
+            </div>
+            <div className="p-4 bg-white bg-opacity-80 rounded-md shadow-lg">
+              <h3 className="font-bold text-lg text-black">Legal and Financial Consequences</h3>
+              <p className="text-base text-black">
+                Involvement with drugs can result in legal troubles, including arrests and fines, as well as financial instability due to treatment costs or loss of employment.
+                Understanding these risks can help individuals make safer choices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+
     </div>
+
   );
 }
