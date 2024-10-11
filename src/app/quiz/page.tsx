@@ -52,7 +52,7 @@ export default function Quiz() {
                 	name="name"
                 	render={({ field }) => (
                     	<FormItem>
-                        	<FormLabel>Question 1:</FormLabel>
+                        	<FormLabel>question 1:</FormLabel>
                         	<FormDescription>What is your name?</FormDescription>
                             	<FormControl>
                                 	<Input placeholder="your name here" {...field}/>
