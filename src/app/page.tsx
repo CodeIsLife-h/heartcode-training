@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-col justify-center h-dvh ">
 
           <p className="font-bold text-5xl text-center text-white">
-            do you do
+            Do you do
             {isMounted ? <FlipWords words={words} /> : words[0]}
             ?
           </p>
